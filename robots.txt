@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://bocchi1204.github.io/clarity-desk/sitemap.xml
+Sitemap: https://example.github.io/blog-auto/sitemap.xml
