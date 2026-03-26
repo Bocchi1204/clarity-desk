@@ -1,0 +1,17 @@
+Comandos copiables para instalar el setup en otra laptop con Zorin OS
+
+Opción con wget:
+
+wget https://raw.githubusercontent.com/Bocchi1204/clarity-desk/main/tools/setup-zorin-f-completo.sh
+bash setup-zorin-f-completo.sh
+
+Opción con curl:
+
+curl -LO https://raw.githubusercontent.com/Bocchi1204/clarity-desk/main/tools/setup-zorin-f-completo.sh
+bash setup-zorin-f-completo.sh
+
+Si quieres hacerlo ejecutable primero:
+
+wget https://raw.githubusercontent.com/Bocchi1204/clarity-desk/main/tools/setup-zorin-f-completo.sh
+chmod +x setup-zorin-f-completo.sh
+./setup-zorin-f-completo.sh
