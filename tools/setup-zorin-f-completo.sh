@@ -9,7 +9,7 @@ log "Updating system"
 sudo apt update
 sudo apt upgrade -y
 
-log "Installing apt packages"
+log "Installing base system packages"
 sudo apt install -y \
   curl \
   wget \
@@ -26,19 +26,18 @@ sudo apt install -y \
   software-properties-common \
   apt-transport-https \
   ffmpeg \
-  vlc \
   python3 \
   python3-pip \
   python3-venv \
   flatpak \
   gnome-tweaks \
-  gnome-shell-extension-manager
+  gnome-shell-extension-manager \
+  gnome-software-plugin-flatpak
 
 log "Enabling Flatpak + Flathub"
-sudo apt install -y gnome-software-plugin-flatpak || true
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
-log "Installing Flatpak apps"
+log "Installing daily apps from Flatpak"
 flatpak install -y flathub \
   com.visualstudio.code \
   md.obsidian.Obsidian \
@@ -49,7 +48,8 @@ flatpak install -y flathub \
   com.spotify.Client \
   com.github.tchx84.Flatseal \
   com.valvesoftware.Steam \
-  com.github.IsmaelMartinez.teams_for_linux
+  com.github.IsmaelMartinez.teams_for_linux \
+  org.videolan.VLC
 
 log "Installing Python CLI tools"
 python3 -m pip install --user --break-system-packages \
@@ -138,14 +138,11 @@ export PATH="$HOME/.local/bin:$PATH"
 flatpak run com.visualstudio.code --install-extension ms-python.python || true
 flatpak run com.visualstudio.code --install-extension ms-python.vscode-pylance || true
 flatpak run com.visualstudio.code --install-extension ms-python.debugpy || true
-flatpak run com.visualstudio.code --install-extension ms-vscode.cpptools || true
 flatpak run com.visualstudio.code --install-extension dbaeumer.vscode-eslint || true
 flatpak run com.visualstudio.code --install-extension esbenp.prettier-vscode || true
 flatpak run com.visualstudio.code --install-extension usernamehw.errorlens || true
 flatpak run com.visualstudio.code --install-extension yzhang.markdown-all-in-one || true
 flatpak run com.visualstudio.code --install-extension PKief.material-icon-theme || true
-flatpak run com.visualstudio.code --install-extension github.copilot || true
-flatpak run com.visualstudio.code --install-extension github.copilot-chat || true
 flatpak run com.visualstudio.code --install-extension alexshenvscode.alex-s-dark-theme || true
 flatpak run com.visualstudio.code --install-extension tonybaloney.vscode-pets || true
 
@@ -161,7 +158,6 @@ cat > "$HOME/.var/app/com.visualstudio.code/config/Code/User/settings.json" <<'J
   "python.analysis.typeCheckingMode": "basic",
   "python.analysis.autoImportCompletions": true,
   "errorLens.enabled": true,
-  "github.copilot.inlineSuggest.enable": true,
   "workbench.colorTheme": "Alex's Dark Theme",
   "vscode-pets.petType": "cat",
   "vscode-pets.position": "explorer",
@@ -175,5 +171,6 @@ log "Final cleanup"
 sudo apt autoremove -y
 
 printf '\n==> Done.\n'
+printf 'Apt was kept mostly for base system utilities; most desktop apps were installed through Flatpak.\n'
 printf 'OpenClaw and ClawHub were installed, but a fresh machine still needs your own OpenClaw config/account to work exactly like this laptop.\n'
 printf 'Recommended next step: reboot the laptop.\n'

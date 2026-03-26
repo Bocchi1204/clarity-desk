@@ -16,6 +16,7 @@ O directamente:
 bash setup-zorin-f-completo.sh
 
 Notas:
-- Va a pedir sudo porque instala paquetes del sistema.
+- Va a pedir sudo porque instala paquetes base del sistema.
+- El script intenta dejar la mayoría de apps de escritorio por Flatpak y usa apt principalmente para utilidades base y dependencias del sistema.
 - Instala OpenClaw y ClawHub, pero una máquina nueva todavía necesita tu propia configuración de OpenClaw para quedar igual que tu laptop actual.
 - Al terminar, conviene reiniciar.
