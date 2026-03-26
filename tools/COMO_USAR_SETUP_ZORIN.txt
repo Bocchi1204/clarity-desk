@@ -1,0 +1,21 @@
+Archivo listo para copiar a una USB:
+
+- setup-zorin-f-completo.sh
+
+En la otra laptop con Zorin OS:
+
+1. Copia el archivo a tu carpeta personal.
+2. Abre terminal en esa carpeta.
+3. Ejecuta:
+
+chmod +x setup-zorin-f-completo.sh
+./setup-zorin-f-completo.sh
+
+O directamente:
+
+bash setup-zorin-f-completo.sh
+
+Notas:
+- Va a pedir sudo porque instala paquetes del sistema.
+- Instala OpenClaw y ClawHub, pero una máquina nueva todavía necesita tu propia configuración de OpenClaw para quedar igual que tu laptop actual.
+- Al terminar, conviene reiniciar.
